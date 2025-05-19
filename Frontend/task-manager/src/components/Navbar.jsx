@@ -1,17 +1,39 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   return (
-    <div>
-      <div className='navbar-section'>
-        <ul className='d-flex w-100 justify-content-center gap-4 mt-4 '>
-          <Link to={"/"} className='text-decoration-none'><li>Home</li></Link>
-          <Link className='text-decoration-none' to={"/projects"}><li>Projects</li></Link>
-          <Link className='text-decoration-none' to={"/tasks"}><li>Tasks</li></Link>
-        </ul>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
+      <div className="container-fluid">
+        <Link className="navbar-brand fw-bold" to="/">Task Manager</Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        
+        <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul className="navbar-nav gap-3">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/projects">Projects</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/tasks">Tasks</Link>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  )
-}
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
