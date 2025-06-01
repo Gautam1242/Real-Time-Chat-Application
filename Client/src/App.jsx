@@ -1,7 +1,20 @@
 import React from "react";
-
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
 const App = () => {
-  return <h1 class="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <>
+      <div className="bg-[url('./src/assets/bgImage.svg')] bg-contain"> 
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/profile" element={<ProfilePage />}></Route>
+        </Routes>
+      </div>
+    </>
+  );
 };
 
 export default App;
