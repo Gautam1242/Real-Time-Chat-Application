@@ -12,7 +12,7 @@ const LoginPage = () => {
   const handleSubmit=(e)=>{
     e.preventDefault();
 
-    if(currentState==='Sign up' && !isDataSubmitted){
+    if(currentState==='Sign Up' && !isDataSubmitted){
       setIsDataSubmitted(true);
       return;
     }
@@ -43,7 +43,7 @@ const LoginPage = () => {
       }
 
       {
-        currentState === "Sign Up" && !isDataSubmitted && (
+        currentState === "Sign Up" && isDataSubmitted && (
           <textarea onChange={(e)=>setBio(e.target.value)} value={bio} rows={4} className="p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Provide a short bio..." required></textarea>
         )
       }
