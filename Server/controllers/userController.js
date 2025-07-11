@@ -116,3 +116,11 @@ export const updateProfile = async (req, res) => {
     });
   }
 };
+
+// controller to check user is authenticated
+export const checkAuth=(req,res)=>{
+  res.json({
+    success:true,
+    user:req.user
+  })
+}
