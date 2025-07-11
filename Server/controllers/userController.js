@@ -14,19 +14,25 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    if (user.password !== password) {
+    const isPassword=await bcrypt.compare(password,user.password);
+
+    if (!isPassword) {
       return res.status(200).json({
         success: false,
         message: "Incorrect Password",
       });
     }
 
+    const token=generateToken(newUser._id);
+
     res.status(200).json({
       success: true,
       message: "Login Successfully",
+      user,
+      token
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     res.status(500).json({
       success: false,
       message: error.message,
