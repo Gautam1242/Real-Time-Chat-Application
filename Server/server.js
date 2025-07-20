@@ -22,7 +22,8 @@ await connectDB();
 
 const PORT = process.env.PORT || 5000;
 
-app.use("/user", router);
+// user end points
+app.use("/api/auth", router);
 
 server.listen(PORT, () => {
   console.log("Server is running on PORT : " + PORT);
