@@ -26,7 +26,7 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    const token = generateToken(newUser._id);
+    const token = generateToken(user._id);
 
     res.status(200).json({
       success: true,
@@ -46,7 +46,7 @@ export const loginUser = async (req, res) => {
 // api for sign up
 export const signupUser = async (req, res) => {
   try {
-    const { email, fullName, password } = req.body;
+    const { email, fullName, password,bio } = req.body;
 
     const user = await User.findOne({ email });
 
@@ -64,6 +64,7 @@ export const signupUser = async (req, res) => {
       email,
       fullName,
       password: hashedPassword,
+      bio
     });
 
     await newUser.save();
@@ -89,6 +90,7 @@ export const signupUser = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const { fullName, profilePic, bio } = req.body;
+    console.log(req);
     const userId = req.user._id;
     let updatedUser;
 
