@@ -88,7 +88,7 @@ export const markMessageAsSeen=async(req,res)=>{
 // api to send message to selected user 
 export const sendMessage=async(req,res)=>{
     try {
-        const {selectedUserId}=req.params.id;
+        const selectedUserId=req.params.id;
         const userId=req.user._id;
         const {text,image}=req.body;
 
