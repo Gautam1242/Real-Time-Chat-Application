@@ -29,6 +29,7 @@ const ChatContainer = () => {
     e.preventDefault();
     if(input.trim()==="") return null;
     await sendMessage({text:input.trim()});
+    getMessages(selectedUser._id);
     setInput("");
   }
 
